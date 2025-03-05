@@ -27,11 +27,15 @@ h5 {
     padding-bottom: 30px;
 }
 .home-image {
-    width: 90%;
+    width: 100%;
 }
 .home-text {
     text-align: center;
     font-family: serif;
     font-weight: bold;
     color: dimgrey;
+}
+#results {
+    text-align: center;
+    font-family: serif;
 }

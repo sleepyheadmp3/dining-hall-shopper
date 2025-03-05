@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='search_results.js')}}"></script>
+<script>
+    let matches = {{ matches | tojson }};
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="heading">
+    <h3>Search Results for "{{ query }}"</h3>
+</div>
+<!-- search results -->
+<div class="container" id="results"></div>
+{% endblock %}

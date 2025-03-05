@@ -65,13 +65,12 @@ def home():
 def view_id(id=id): # how is id this passed in idk
     return render_template('view_id.html', id=id, dining_halls=dining_halls)
 
-@app.route('/search_results')
+# ajax for layout.js
+@app.route('/search_results', methods=['GET'])
 def search_results():
-    query = request.args.get('q')
-    return "query: " + query
-    # TODO
-    # route that takes in searched info, searches thru all data,
-    # returns only matching items to a view that shows list of search results
+    query = request.args.get("query","").strip()
+    matches = [dh for dh in dining_halls if query.lower() in dh["name"].lower()]
+    return render_template('search_results.html', matches=matches, query=query)
 
 if __name__ == '__main__':
    app.run(debug = True, port=5001)
