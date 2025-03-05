@@ -1,0 +1,37 @@
+#navbar-brand {
+    font-family: serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+}
+.blue {
+    background-color: steelblue;
+}
+.heading {
+    padding: 30px;
+}
+h3 {
+    font-family: serif;
+    text-align: center;
+    font-weight: bold;
+    color: steelblue;
+}
+h5 {
+    font-family: serif;
+    text-align: center;
+    color: dimgrey;
+}
+.home-images {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.home-image {
+    width: 90%;
+}
+.home-text {
+    text-align: center;
+    font-family: serif;
+    font-weight: bold;
+    color: dimgrey;
+}
