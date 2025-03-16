@@ -20,7 +20,4 @@ function displayThree(topHalls) {
 // when page loads, display top 3 dining halls
 $(document).ready(function(){
     displayThree([1, 2, 3]); // change here to customize!!
-
-
-
 })

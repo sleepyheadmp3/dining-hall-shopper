@@ -7,7 +7,7 @@ dining_halls = [
     {
         "id": 1,
         "name": "Ferris Booth Commons",
-        "rating": "4.5/5",
+        "rating": "4.5",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/FBC%20location%20photos/Ferris%20dessert%20case.jpg?itok=wDKiUcPS",
         "desc": "Ferris is a fantastic option for grocery shopping due to the numerous food items students can " +
             "grab! In addition to being buffet-style, Ferris has paper plates available, so no need to bring your own" +
@@ -17,13 +17,13 @@ dining_halls = [
         "location": "Lerner Hall",
         "containers":["Disposable plates", "Reusable take-out box"],
         "fruit":["Apples", "Pears", "Bananas"],
-        "condiments":["Salt", "Pepper", "Soy sauce", "Ketchup", "Mustard", "Relish"],
+        "condiments":["Salt", "Pepper", "Soy sauce", "Ketchup", "Mustard", "Relish", "Worchestershire sauce"],
         "unpackaged":["Bagels", "Muffins", "Bread", "Vegetables", "Hummus"],
         "packaged":["Milk", "Nutella", "Cream cheese", "Butter", "Syrups"]
     },
     {
         "id": 2,
-        "rating": "3/5",
+        "rating": "3",
         "name": "John Jay Dining Hall",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/John%20Jay%20Location%20Photos/Campus%20Services%20126.JPG?itok=G9F67nZq",
         "desc": "John Jay offers a good variety of food items and resides at an easily accessibly location. However, " +
@@ -39,7 +39,7 @@ dining_halls = [
     },
     {
         "id": 3,
-        "rating": "4/5",
+        "rating": "4",
         "name": "JJ's Place",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/JJs%20Location%20Photos/Campus_Services_210.JPG?itok=YkMBrgK_",
         "desc": "Ah yes, my old friend JJ's. Where the food may lack in quality, it definitely makes" +
@@ -55,7 +55,7 @@ dining_halls = [
     },
     {
         "id": 4,
-        "rating": "2.5/5",
+        "rating": "2.5",
         "name": "Hewitt Dining Hall",
         "image": "https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/KUKBVRSO2BB7XG4OGGOMMP7SEI.jpg",
         "desc": "Hewitt arguably one of the best dining halls on campus in terms of food quality and variety. It offers" +
@@ -72,7 +72,7 @@ dining_halls = [
     },
     {
         "id": 5,
-        "rating": "1/5",
+        "rating": "1",
         "name": "Diana Center Café",
         "image": "https://cloudfront-us-east-1.images.arcpublishing.com/spectator/P2JUV4XKWZD47O6WNCHKHJ6AEY.JPG",
         "desc": "Amazing smoothies and wood-fire pizza. Terrible dining hall policies. A single meal swipe is restricted" +
@@ -90,7 +90,7 @@ dining_halls = [
     {
         "id": 6,
         "name": "Chef Mike's Sub Shop",
-        "rating": "2/5",
+        "rating": "2",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/Chef%20Mike%27s%20Sub%20Shop/Campus_Services_185%20%281%29.JPG?h=f8535d6b&itok=WaSWi7bU",
         "desc": "Chef Mike's makes great sandwiches, with plenty of customization options. However, a meal swipe is " +
             "restricted to one sandwich, a drink, a fruit, and a choice of dessert or chips. There is not great variety" +
@@ -107,7 +107,7 @@ dining_halls = [
     {
         "id": 7,
         "name": "Faculty House",
-        "rating": "2/5",
+        "rating": "2",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/Faculty%20House/IMG_4466.JPG?itok=dRMaCwin",
         "desc": "Faculty House is known for having superb food quality and meals that actually taste like real food. " +
             "However, it seems to be a trend within Columbia Dining that the higher quality food provided, the more " +
@@ -124,7 +124,7 @@ dining_halls = [
     {
         "id": 8,
         "name": "Grace Dodge Dining Hall",
-        "rating": "1/5",
+        "rating": "1",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/HeroImages/TC_GDH_hero1.jpg?h=4fe3d9f3&itok=hmEX9sdR",
         "desc": "Grace Dodge is an interesting case of high restrictions on food access AND disappointing food " +
             "quality. The newly implemented system consists of two lines - one for custom salad, one for a ramen bowl. " +
@@ -134,13 +134,13 @@ dining_halls = [
         "containers": ["Disposable plates"],
         "fruit":["Apples", "Oranges"],
         "condiments":["N/A"],
-        "unpackaged":["Soup," "Cookies"],
+        "unpackaged":["Soup", "Cookies"],
         "packaged":["Syrups"]
     },
     {
         "id": 9,
         "name": "Chef Don's Pizza Pi",
-        "rating": "1/5",
+        "rating": "1",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/Chef%20Don%27s%20Pizza%20Pi/IMG_4547.JPG?h=349ef706&itok=gKLbTdLl",
         "desc": "Chef Don's is similar to the other dining halls that have limited swipes. A single swipe grants you " +
         "one pizza or Cuban sandwich, one fruit, a beverage, and a dessert. The oranges and apples that I've seen at " +
@@ -156,7 +156,7 @@ dining_halls = [
     {
         "id": 10,
         "name": "Café East",
-        "rating": "0/5",
+        "rating": "0",
         "image": "https://lernerhall.columbia.edu/sites/default/files/content/img/Food/283146754_807181683578722_4471646357625449836_n.jpg",
         "desc": "Cafe East offers delicious Boba tea, smoothies, sushi, and other treats. Though students can use their " +
         "dining dollars and FLEX dollars there, it is very much not a dining hall. Additionally, Barnard students cannot" +
@@ -177,14 +177,53 @@ def home():
     return render_template('index.html', dining_halls=dining_halls)
 
 @app.route('/view/<id>')
-def view_id(id=id): # how is id this passed in idk
+def view_id(id=id):
     return render_template('view_id.html', id=id, dining_halls=dining_halls)
+
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
+@app.route('/edit/<id>')
+def edit_id(id=id):
+    return render_template('edit_id.html', id=id, dining_halls=dining_halls)
 
 # ajax for layout.js
 @app.route('/search_results', methods=['GET'])
 def search_results():
+    # parses dining_halls and finds matches
     query = request.args.get("query","").strip()
-    matches = [dh for dh in dining_halls if query.lower() in dh["name"].lower()]
+    l_query = query.lower()
+    matches = []
+    for dh in dining_halls:
+        is_match = False
+        items = []
+        if l_query in dh["name"].lower():
+            is_match = True
+        for fruit in dh["fruit"]:
+            if l_query in fruit.lower():
+                items.append(fruit)
+                is_match = True
+        for condiment in dh["condiments"]:
+            if l_query in condiment.lower():
+                items.append(condiment)
+                is_match = True
+        for up in dh["unpackaged"]:
+            if l_query in up.lower():
+                items.append(up)
+                is_match = True
+        for p in dh["packaged"]:
+            if l_query in p.lower():
+                items.append(p)
+                is_match = True
+
+        # formats and appends matches[]
+        if is_match:
+            matches.append({
+                "id": dh["id"],
+                "name": dh["name"],
+                "items": items
+            })
     return render_template('search_results.html', matches=matches, query=query)
 
 if __name__ == '__main__':

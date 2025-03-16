@@ -2,7 +2,8 @@
 {% block head %}
 <script type="text/javascript" src="{{url_for('static', filename='search_results.js')}}"></script>
 <script>
-    let matches = {{ matches | tojson }};
+    let matches = {{ matches | tojson }}
+    let query = "{{ query }}"
 </script>
 {% endblock %}
 

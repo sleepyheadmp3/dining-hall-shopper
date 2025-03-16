@@ -2,7 +2,7 @@ $(document).ready(function() {
     let hall = halls.find(h => h.id === parseInt(id));
     console.log(hall);
     $(".heading").html(`<h3>${hall.name}</h3>`);
-    $(".rating").append(`${hall.rating}`);
+    $(".rating").append(`${hall.rating}`); // TODO make stars!
     $(".header-image").html(`<img src="${hall.image}" alt="${hall.name}" 
         class="view-img">`);
     $(".description").html(`<p>${hall.desc}</p>`);
