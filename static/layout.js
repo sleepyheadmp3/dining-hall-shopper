@@ -12,4 +12,7 @@ $(document).ready(function(){
             window.location.href = "/search_results?query=" + encodeURIComponent(query);
         }
     });
+    $("#add-route").click(function() {
+        window.location.href = "/add";
+    });
 })

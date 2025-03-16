@@ -50,8 +50,9 @@ dining_halls = [
         "containers": ["Disposable plates", "Disposable bowls", "Disposable take-out box"],
         "fruit":["Apples", "Bananas", "Oranges", "Pears", "Assorted"],
         "condiments":["Salt", "Pepper"],
-        "unpackaged":["Celery", "Chips", "Pretzels", "Hummus", "Boiled eggs"],
-        "packaged":["Milk", "Ice cream", "Syrups"]
+        "unpackaged":["Celery", "Chips", "Pretzels", "Hummus", "Boiled eggs", "Oatmeal", "Yogurt", "Chia seed pudding",
+             "Diced mango", "M&Ms"],
+        "packaged":["Milk", "Assorted ice cream", "Syrups"]
     },
     {
         "id": 4,
@@ -84,7 +85,7 @@ dining_halls = [
         "containers": ["Disposable bowls", "Disposable pizza box"],
         "fruit":["Oranges"],
         "condiments":["Salt packets", "Pepper packets"],
-        "unpackaged":["Toppings (see above)"],
+        "unpackaged":["Assorted toppings"],
         "packaged":["Chips", "Water bottle"]
     },
     {
@@ -182,13 +183,13 @@ def view_id(id=id):
 
 @app.route('/add')
 def add():
-    return render_template('add.html')
+    last_id = dining_halls[len(dining_halls) - 1]["id"]
+    return render_template('add.html', dining_halls=dining_halls, last_id=last_id)
 
 @app.route('/edit/<id>')
 def edit_id(id=id):
     return render_template('edit_id.html', id=id, dining_halls=dining_halls)
 
-# ajax for layout.js
 @app.route('/search_results', methods=['GET'])
 def search_results():
     # parses dining_halls and finds matches
@@ -225,6 +226,30 @@ def search_results():
                 "items": items
             })
     return render_template('search_results.html', matches=matches, query=query)
+
+# ajax for add.js
+@app.route('/save_entry', methods=['POST'])
+def save_entry():
+    try:
+        data = request.get_json()
+        entry = {
+            "id": data.get("id"),
+            "name": data.get("name"),
+            "rating": data.get("rating"),
+            "image": data.get("image"),
+            "desc": data.get("desc"),
+            "location": data.get("location"),
+            "containers": data.get("containers", []),
+            "fruit": data.get("fruit", []),
+            "condiments": data.get("condiments", []),
+            "unpackaged": data.get("unpackaged", []),
+            "packaged": data.get("packaged", []),
+        }
+        dining_halls.append(entry)
+        return jsonify({"status": "success", "message": "Entry saved successfully!"}), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 
 if __name__ == '__main__':
    app.run(debug = True, port=5001)

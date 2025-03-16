@@ -1,14 +1,53 @@
-<!-- TODO template for creating new database item
-    - /add route should only be accessible from navbar
-    - input boxes for all fields the user must input
-        - labeled fields user can type in
-        - error handling on all the fields to ensure correct input
-            - trim to check if blank
-            - i.e if number, must be number
-            - design feedback so it direct user's attention to
-                the right place to correct the error
-    - after submission:
-        - page says: "New item successfully created."
-        - button / link: "see it here" -> view_id page
-        - clear input boxes, focus back on first text box
-        - data saved on server using ajax
+{% extends "layout.html" %}
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='add.js')}}"></script>
+<script>
+    let halls = {{ dining_halls | tojson }}
+    let newID = parseInt("{{ last_id }}") + 1
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="heading"><h3>Add a Dining Hall!</h3></div>
+<div id="success"></div>
+<form id="add-hall">
+    <div class="row container">
+        <div class="col-8">
+            <div class="form-group">
+                <input type="text" id="hn" name="name" class="input-field" placeholder="Hall Name">
+            </div>
+            <div class="form-group">
+                <input type="text" id="r" name="rating" class="input-field" placeholder="Rating (out of 5)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="i" name="image" class="input-field" placeholder="Image URL">
+            </div>
+            <div class="form-group">
+                <input type="text" id="d" name="desc" class="input-field" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <input type="text" id="l" name="location" class="input-field" placeholder="Location">
+            </div>
+            <div class="form-group">
+                <input type="text" id="ct" name="containers" class="input-field" placeholder="Containers">
+            </div>
+            <div class="form-group">
+                <input type="text" id="f" name="fruit" class="input-field" placeholder="Fruit (comma-separated)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="cm" name="condiments" class="input-field" placeholder="Condiments (comma-separated)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="up" name="unpackaged" class="input-field" placeholder="Unpackaged items (comma-separated)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="p" name="packaged" class="input-field" placeholder="Packaged items (comma-separated)">
+            </div>
+
+        </div>
+        <div class="col-4">
+            <button type="submit" id="btn-add">Add</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

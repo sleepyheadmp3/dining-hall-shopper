@@ -65,3 +65,6 @@ h5 {
 .match-txt {
     color: black;
 }
+.error {
+    color: red;
+}
