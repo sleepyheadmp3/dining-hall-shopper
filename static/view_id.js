@@ -1,5 +1,4 @@
-$(document).ready(function() {
-    let hall = halls.find(h => h.id === parseInt(id));
+function displayEntry() {
     console.log(hall);
     $(".heading").html(`<h3>${hall.name}</h3>`);
     $(".rating").append(`${hall.rating}`); // TODO make stars!
@@ -43,5 +42,12 @@ $(document).ready(function() {
     });
     unpackagedList += "</ul>";
     $("#unpackaged").append(unpackagedList);
+}
+
+$(document).ready(function() {
+    displayEntry();
+    $(".edit-btn").click(function() {
+        window.location.href = "/edit/" + id;
+    });
 
 })

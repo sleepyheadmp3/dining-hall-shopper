@@ -13,6 +13,7 @@ body {
 }
 .heading {
     padding: 30px;
+    display: inline-block;
 }
 h3 {
     font-family: serif;
@@ -67,4 +68,8 @@ h5 {
 }
 .error {
     color: red;
+}
+.input-field {
+    min-width: 40px;
+    max-width: 100%;
 }

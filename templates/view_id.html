@@ -2,12 +2,13 @@
 {% block head %}
 <script type="text/javascript" src="{{url_for('static', filename='view_id.js')}}"></script>
 <script>
-    let halls = {{ dining_halls | tojson }};
+    let hall = {{ hall | tojson }};
     id = {{ id }};
 </script>
 {% endblock %}
 {% block body %}
 <div class="heading"></div>
+<button class="btn btn-outline-warning edit-btn">Edit</button>
 <div class="rating">Shoppability: </div>
 <div class="row header-image"></div>
 <div class="description"></div>
@@ -20,5 +21,6 @@
         <div class="col-3" id="packaged"><b>Packaged goods: </b></div>
         <div class="col-3" id="unpackaged"><b>Unpackaged goods: </b></div>
     </div>
+    <button class="btn btn-outline-warning edit-btn">Edit</button>
 </div>
 {% endblock %}

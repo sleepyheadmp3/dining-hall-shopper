@@ -63,7 +63,7 @@ dining_halls = [
             " many gluten free, kosher, and halal options. However," +
             " it falls rather low on the shoppability scale due to tight restrictions on food storage. No disposable " +
             "containers are provided, not even cups, unless you trade an entire swipe for a small take-out box. The" +
-            "packaged food assortment is also very sparse, further reducing shopping potential.",
+            " packaged food assortment is also very sparse, further reducing shopping potential.",
         "location": "Barnard Hall",
         "containers": ["Reusable plates", "Disposable take-out box"],
         "fruit":["Assorted"],
@@ -179,7 +179,8 @@ def home():
 
 @app.route('/view/<id>')
 def view_id(id=id):
-    return render_template('view_id.html', id=id, dining_halls=dining_halls)
+    hall = dining_halls[int(id) - 1]
+    return render_template('view_id.html', id=id, hall=hall)
 
 @app.route('/add')
 def add():
@@ -188,7 +189,8 @@ def add():
 
 @app.route('/edit/<id>')
 def edit_id(id=id):
-    return render_template('edit_id.html', id=id, dining_halls=dining_halls)
+    dh_entry = dining_halls[int(id) - 1]
+    return render_template('edit_id.html', id=id, dh_entry=dh_entry)
 
 @app.route('/search_results', methods=['GET'])
 def search_results():
@@ -250,6 +252,28 @@ def save_entry():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+# ajax for edit_id.js
+@app.route('/update_entry/<id>', methods=['POST'])
+def update_entry(id):
+    try:
+        data = request.get_json()
+        entry = {
+            "id": id,
+            "name": data.get("name"),
+            "rating": data.get("rating"),
+            "image": data.get("image"),
+            "desc": data.get("desc"),
+            "location": data.get("location"),
+            "containers": data.get("containers", []),
+            "fruit": data.get("fruit", []),
+            "condiments": data.get("condiments", []),
+            "unpackaged": data.get("unpackaged", []),
+            "packaged": data.get("packaged", []),
+        }
+        dining_halls[int(id) - 1] = entry
+        return jsonify({"status": "success", "message": "Entry saved successfully!", "result": dining_halls}), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
    app.run(debug = True, port=5001)

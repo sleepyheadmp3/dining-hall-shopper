@@ -1,3 +1,15 @@
+function resizeInput(inField) {
+    let tempSpan = $("<span>").css({
+        visibility: "hidden",
+        whiteSpace: "nowrap",
+        font: inField.css("font")
+    }).text(inField.val() || inField.attr("placeholder"));
+
+    $("body").append(tempSpan);
+    inField.css("width", tempSpan.outerWidth() + 10 + "px"); // Add some padding
+    tempSpan.remove();
+}
+
 function isValid() {
     const inputs = $(".input-field");
     const formDiv = $(".form-group");
@@ -32,9 +44,9 @@ function isValid() {
     return true;
 }
 
-function saveEntry() {
+function updateEntry() {
     let entry = {
-        "id": newID,
+        "id": id,
         "name": $("#hn").val(),
         "rating": $("#r").val(),
         "image": $("#i").val(),
@@ -49,28 +61,16 @@ function saveEntry() {
 
     $.ajax({
         type: "POST",
-        url: "save_entry",
-        dataType : "json",
+        url: `/update_entry/${id}`,
+        dataType: "json",
         contentType: "application/json; charset=utf-8",
-        data : JSON.stringify(entry),
-        success: function(){
-            // displays success message
-            const inputs = $(".input-field");
-            let viewLink = $("<a>")
-                .attr("href", "/view/" + newID)
-                .text(" Check it out!");
-            let successMsg = $("<div>")
-                .text("New item successfully created.")
-                .append(viewLink);
-            $("#success").append(successMsg);
-
-            // clears all inputs and refocuses
-            for (let i = 0; i < 10; i++) {
-                inputs[i].value = "";
-            }
-            inputs[0].focus();
+        data: JSON.stringify(entry),
+        success: function (result) {
+            console.log("Successfully updated.");
+            console.log(result);
+            window.location.href = "/view/" + id;
         },
-        error: function(request, status, error){
+        error: function (request, status, error) {
             console.log("Error");
             console.log(request)
             console.log(status)
@@ -79,12 +79,43 @@ function saveEntry() {
     });
 }
 
-$(document).ready(function(){
-    $("#add-hall").on("submit", function(event) {
+$(document).ready(function() {
+    // prepopulates fields wth existing values
+    const inputs = $(".input-field");
+    const keys = ["name", "rating", "image", "desc", "location", "containers",
+        "fruit", "condiments", "unpackaged", "packaged"]
+    for (let i = 0; i < 10; i++) {
+        let value = dining_hall[keys[i]];
+        if (Array.isArray(value)) {
+            value = value.join(", ");
+        }
+        inputs[i].value = value;
+        resizeInput($(inputs[i]));
+    }
+
+    $("#submit-edit").on("click", function (event) {
         event.preventDefault();
         $(".error").remove();
         if (isValid()) {
-            saveEntry();
+            updateEntry();
+        }
+    })
+
+    $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "Yes": function() {
+                $(this).dialog("close");
+                window.location.href = "/view/" + id;
+            },
+            "No, continue editing": function() {
+                $(this).dialog("close");
+            }
         }
     });
+    $("#discard").on("click", function (event) {
+        event.preventDefault();
+        $("#dialog").dialog("open");
+    })
 })

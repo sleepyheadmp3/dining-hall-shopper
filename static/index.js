@@ -1,7 +1,7 @@
 function displayThree(topHalls) {
     // places images in columns
     for (let i = 0; i < topHalls.length; i++) {
-        let hall = halls.find(h => h.id === topHalls[i]);
+        let hall = halls.find(h => parseInt(h.id) === topHalls[i]);
         let newCol = $("<div class='col-4'>")
         let hallLink = $("<a>").attr("href", "/view/" + hall.id);
         $(newCol).append((hallLink).append($("<img>").attr("src", hall.image)
@@ -10,9 +10,11 @@ function displayThree(topHalls) {
     }
     // places names under images in columns
     for (let i = 0; i < topHalls.length; i++) {
-        let hall = halls.find(h => h.id === topHalls[i]);
+        let hall = halls.find(h => parseInt(h.id) === topHalls[i]);
         let newCol = $("<div class='col-4'>")
-        $(newCol).append($("<a>").attr("href", "/view/" + hall.id).text(hall.name));
+        $(newCol).append($("<a>").attr("href", "/view/" + hall.id)
+            .text(hall.name))
+            .append($("<div>").text(hall.rating));
         $(".home-text").append(newCol)
     }
 }

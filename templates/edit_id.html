@@ -1,11 +1,56 @@
-<!-- TODO editing route for editing data of existing entries
-    - button to here from /view/<id>
-    - have text boxes + other inputs for each field
-    - each field should be pre-populated w current value
-    - "submit" button
-        - after pressing, data should be saved to server
-        - user sent to /view/<id> page where they can see changes
-    - "discard changes" button
-        - when pressed - page presents dialog box widget that asks if they are sure
-        - if sure, don't save data and take back to view/<id> page
-        - if aren't sure, keep editing
+{% extends "layout.html" %}
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='edit_id.js')}}"></script>
+<script>
+    let dining_hall = {{ dh_entry | tojson }}
+    let id = parseInt("{{ id }}")
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="heading"><h3>Edit {{dh_entry.name}}:</h3></div>
+<form id="add-hall">
+    <div class="row form-container">
+        <div class="col-10">
+            <div class="form-group">
+                Dining hall name:
+                <input type="text" id="hn" name="name" class="input-field" placeholder="Name">
+            </div>
+            <div class="form-group">Rating (out of 5):
+                <input type="text" id="r" name="rating" class="input-field" placeholder="Number">
+            </div>
+            <div class="form-group">Image:
+                <input type="text" id="i" name="image" class="input-field" placeholder="URL">
+            </div>
+            <div class="form-group">Description:
+                <input type="text" id="d" name="desc" class="input-field" placeholder="Description">
+            </div>
+            <div class="form-group">Location:
+                <input type="text" id="l" name="location" class="input-field" placeholder="Location">
+            </div>
+            <div class="form-group">Food containers:
+                <input type="text" id="ct" name="containers" class="input-field" placeholder="(comma-separated)">
+            </div>
+            <div class="form-group">Fruit:
+                <input type="text" id="f" name="fruit" class="input-field" placeholder="(comma-separated)">
+            </div>
+            <div class="form-group">Condiments:
+                <input type="text" id="cm" name="condiments" class="input-field" placeholder="(comma-separated)">
+            </div>
+            <div class="form-group">Unpackaged food:
+                <input type="text" id="up" name="unpackaged" class="input-field" placeholder="(comma-separated)">
+            </div>
+            <div class="form-group">Packaged food:
+                <input type="text" id="p" name="packaged" class="input-field" placeholder="(comma-separated)">
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" id="submit-edit">Submit</button>
+            <button type="submit" id="discard">Discard</button>
+            <div id="dialog">
+                <p>Are you sure you want to discard changes?</p>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
