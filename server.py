@@ -7,7 +7,7 @@ dining_halls = [
     {
         "id": 1,
         "name": "Ferris Booth Commons",
-        "rating": "4.5",
+        "rating": "5",
         "image": "https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/FBC%20location%20photos/Ferris%20dessert%20case.jpg?itok=wDKiUcPS",
         "desc": "Ferris is a fantastic option for grocery shopping due to the numerous food items students can " +
             "grab! In addition to being buffet-style, Ferris has paper plates available, so no need to bring your own" +
@@ -18,7 +18,7 @@ dining_halls = [
         "containers":["Disposable plates", "Reusable take-out box"],
         "fruit":["Apples", "Pears", "Bananas"],
         "condiments":["Salt", "Pepper", "Soy sauce", "Ketchup", "Mustard", "Relish", "Worchestershire sauce"],
-        "unpackaged":["Bagels", "Muffins", "Bread", "Vegetables", "Hummus"],
+        "unpackaged":["Bagels", "Muffins", "Bread", "Vegetables", "Hummus", "Cake"],
         "packaged":["Milk", "Nutella", "Cream cheese", "Butter", "Syrups"]
     },
     {
@@ -34,7 +34,7 @@ dining_halls = [
         "containers": ["Reusable plates", "Reusable take-out box"],
         "fruit":["Apples", "Bananas", "Oranges", "Pears", "Assorted"],
         "condiments":["Salt", "Pepper", "Ketchup", "Mustard"],
-        "unpackaged":["Bagels", "Muffins", "Pastries", "Cakes", "Vegetables", "Hummus", "Cream cheese"],
+        "unpackaged":["Bagels", "Muffins", "Pastries", "Cake", "Vegetables", "Hummus", "Cream cheese"],
         "packaged":["Nutella", "Cookies", "Ice cream", "Syrups"]
     },
     {
@@ -45,7 +45,7 @@ dining_halls = [
         "desc": "Ah yes, my old friend JJ's. Where the food may lack in quality, it definitely makes" +
             " up for in shoppability. All items are easily taken out of the dining hall due to the generous " +
             "availability of disposable plates and containers. That being said, most foods are perishable and not " +
-            "packaged, so there is not much long term value. Another half point docked due to a lack of variety.",
+            "packaged, so there is not much long term value, nor variety for that matter.",
         "location": "John Jay Hall",
         "containers": ["Disposable plates", "Disposable bowls", "Disposable take-out box"],
         "fruit":["Apples", "Bananas", "Oranges", "Pears", "Assorted"],
@@ -56,7 +56,7 @@ dining_halls = [
     },
     {
         "id": 4,
-        "rating": "2.5",
+        "rating": "3",
         "name": "Hewitt Dining Hall",
         "image": "https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/KUKBVRSO2BB7XG4OGGOMMP7SEI.jpg",
         "desc": "Hewitt arguably one of the best dining halls on campus in terms of food quality and variety. It offers" +
@@ -101,7 +101,7 @@ dining_halls = [
         "location": "Uris Hall",
         "containers": ["Disposable sandwich bag"],
         "fruit":["Apples", "Bananas"],
-        "condiments":["N/A"],
+        "condiments":[""],
         "unpackaged":["Cookies", "Brownies"],
         "packaged":["Chips"]
     },
@@ -114,11 +114,11 @@ dining_halls = [
             "However, it seems to be a trend within Columbia Dining that the higher quality food provided, the more " +
             "difficult it becomes to take food out, much less 'grocery shop'. Fac House does have a take-out option, " +
             "but its dine-in uses all reusable plates, so make sure to bring your own. The variety of dine-in options" +
-            " is decent, but there are only a few items aside from the meals that can be taken out and realistcally stored.",
+            " is decent, but there are only a few items aside from the meals that can be taken out and stored.",
         "location": "Faculty House",
         "containers": ["Reusable plates", "Disposable take-out box"],
         "fruit":["Apples"],
-        "condiments":["N/A"],
+        "condiments":[""],
         "unpackaged":["Cookies", "Brownies", "Dessert"],
         "packaged":["Cookies"]
     },
@@ -134,7 +134,7 @@ dining_halls = [
         "location": "Teacher's College",
         "containers": ["Disposable plates"],
         "fruit":["Apples", "Oranges"],
-        "condiments":["N/A"],
+        "condiments":[""],
         "unpackaged":["Soup", "Cookies"],
         "packaged":["Syrups"]
     },
@@ -150,8 +150,8 @@ dining_halls = [
         "location": "Mudd",
         "containers": ["Disposable pizza boxes"],
         "fruit":["Apples", "Oranges"],
-        "condiments":["N/A"],
-        "unpackaged":["Soup," "Pastry", "Milkshake"],
+        "condiments":[""],
+        "unpackaged":["Soup," "Pastry", "Milkshake", "Brown sugar", "Raisins"],
         "packaged":["Drinks", "Salad", "Oatmeal"]
     },
     {
@@ -164,11 +164,11 @@ dining_halls = [
         "use their points at Cafe East. There is zero potential for taking advantage of your meal plan to 'grocery shop' here" +
         "because the cafe is a shop in and of itself - every item is paid for individually.",
         "location": "Lerner Hall",
-        "containers": ["N/A"],
-        "fruit":["N/A"],
-        "condiments":["N/A"],
-        "unpackaged":["N/A"],
-        "packaged":["Wasabi", "Ginger", "Soy sauce"]
+        "containers": [""],
+        "fruit":[""],
+        "condiments":["Soy sauce"],
+        "unpackaged":[""],
+        "packaged":["Wasabi", "Ginger"]
 
     },
 ]

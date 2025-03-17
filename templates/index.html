@@ -7,17 +7,26 @@
 {% endblock %}
 
 {% block body %}
-<div class="heading">
-    <!-- TODO restructure homepage -->
-    <!-- conceptual group w goal: indicate purpose and audience for site -->
-        <!-- suggested: title, image descriptive text -->
-    <h3>Top Rated Dining Halls for "Grocery Shopping"</h3>
-    <h5>Get your groceries here!</h5>
+<div class="row home-head heading">
+    <h1>"Grocery Shopper"</h1>
 </div>
-<!-- TODO top three dining hall entries! -->
-<!-- should be enticing to click, show more than title but not everything -->
+<div class="row home-head-2">
+    <div class="col-6">
+        <img src="https://clipart-library.com/2023/134-1344167_full-grocery-cart-clipart-shopping-cart-clip-art.png"
+             id="cart" alt="shopping cart clipart">
+    </div>
+    <div class="col-6">
+        <h6><div class="white">Make the most of your $16 meal swipe.</div>
+            Get your groceries right here - at Columbia's very own dining halls!</h6>
+    </div>
+</div>
 <div class="container">
-    <div class="row home-images"></div>
-    <div class="row home-text"></div>
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <div class="row home-images"></div>
+            <div class="row home-text"></div>
+        </div>
+    </div>
 </div>
 {% endblock %}

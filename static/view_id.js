@@ -1,9 +1,9 @@
 function displayEntry() {
     console.log(hall);
-    $(".heading").html(`<h3>${hall.name}</h3>`);
-    $(".rating").append(`${hall.rating}`); // TODO make stars!
+    $(".heading").html(`<h2>${hall.name}</h2>`);
+    $(".rating").html(toStar(hall.rating));
     $(".header-image").html(`<img src="${hall.image}" alt="${hall.name}" 
-        class="view-img">`);
+        class="view-img img-fluid">`);
     $(".description").html(`<p>${hall.desc}</p>`);
     $("#location").append(`${hall.location}`);
 
@@ -42,6 +42,19 @@ function displayEntry() {
     });
     unpackagedList += "</ul>";
     $("#unpackaged").append(unpackagedList);
+}
+
+function toStar(rating) {
+    let stars = "";
+    // adds full stars
+    for (let i = 1; i <= parseInt(rating); i++) {
+        stars += '<span class="star full">&#9733;</span>';
+    }
+    // adds empty stars
+    for (let i = Math.ceil(rating); i < 5; i++) {
+        stars += '<span class="star empty">&#9734;</span>';
+    }
+    return stars;
 }
 
 $(document).ready(function() {

@@ -14,12 +14,25 @@ function displayThree(topHalls) {
         let newCol = $("<div class='col-4'>")
         $(newCol).append($("<a>").attr("href", "/view/" + hall.id)
             .text(hall.name))
-            .append($("<div>").text(hall.rating));
+            .append($("<div>").html(toStar(hall.rating)));
         $(".home-text").append(newCol)
     }
 }
 
+function toStar(rating) {
+    let stars = "";
+    // adds full stars
+    for (let i = 1; i <= parseInt(rating); i++) {
+        stars += '<span class="star full">&#9733;</span>';
+    }
+    // adds empty stars
+    for (let i = Math.ceil(rating); i < 5; i++) {
+        stars += '<span class="star empty">&#9734;</span>';
+    }
+    return stars;
+}
+
 // when page loads, display top 3 dining halls
 $(document).ready(function(){
-    displayThree([1, 2, 3]); // change here to customize!!
+    displayThree([1, 3, 2]); // change here to customize!!
 })

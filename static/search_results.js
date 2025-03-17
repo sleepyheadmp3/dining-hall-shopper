@@ -46,13 +46,13 @@ function displayResults() {
 $(document).ready(function() {
     console.log(matches)
     $("#results").empty();
-    let searchMessage = $("<div>").addClass("row search-message");
+    let searchMessage = $("<div>").addClass("search-message");
     if (matches == null || matches.length == 0) {
         $(searchMessage).append("No results found.");
     }
     else {
         $(searchMessage).append(matches.length + " results found:");
     }
-    $("#results").append(searchMessage)
+    $(".heading").append(searchMessage)
     displayResults();
 })

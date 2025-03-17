@@ -17,17 +17,20 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand-lg blue">
+<nav class="row navbar navbar-expand-lg green">
     <div class="container-fluid">
-        <a id="navbar-brand" href="/">Columbia Dining Hall Shopper!</a>
-        <button class="btn btn-outline-warning" type="submit" id="add-route">New Entry</button>
+        <a id="navbar-brand" href="/">Shopper</a>
         <form id="search-bar" class="d-flex" action="/search_results" method="GET">
             <input class="form-control me-2" type="search" placeholder="Search"
-                   aria-label="Search" name="q">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
+                   aria-label="Search" name="q" id="search-input">
+            <button class="btn" id="submit-search" type="submit">Go</button>
         </form>
+        <button class="btn btn-outline-warning" type="submit" id="add-route">New!</button>
     </div>
 </nav>
-{% block body %}{% endblock %}
+<div class="container-fluid">
+    {% block body %}
+    {% endblock %}
+</div>
 </body>
 </html>

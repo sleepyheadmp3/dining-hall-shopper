@@ -7,20 +7,38 @@
 </script>
 {% endblock %}
 {% block body %}
-<div class="heading"></div>
-<button class="btn btn-outline-warning edit-btn">Edit</button>
-<div class="rating">Shoppability: </div>
-<div class="row header-image"></div>
-<div class="description"></div>
-<div class="container">
-    <div class="row" id="location"><b>Location: </b></div>
-    <div class="row" id="containers"><b>Containers: </b></div>
-    <div class="row">
-        <div class="col-3" id="fruit"><b>Fruit: </b></div>
-        <div class="col-3" id="condiments"><b>Condiments: </b></div>
-        <div class="col-3" id="packaged"><b>Packaged goods: </b></div>
-        <div class="col-3" id="unpackaged"><b>Unpackaged goods: </b></div>
+<div class="row hall-head">
+    <div class="col-6">
+        <div class="row header-image"></div>
     </div>
-    <button class="btn btn-outline-warning edit-btn">Edit</button>
+    <div class="col-6">
+        <div class="heading"></div>
+        <div class="rating"></div>
+        <div class="button-div d-flex justify-content-center align-items-center">
+            <button class="btn edit-btn btn-style">Edit</button>
+        </div>
+    </div>
+</div>
+<div class="description item"></div>
+<div class="container">
+    <div class="etc">
+        <div class="row item" id="location">
+            <span class="field-v">Location:&nbsp;</span>
+        </div>
+        <div class="row item" id="containers"><span class="field-v">Food containers:</span></div>
+    </div>
+    <div class="row item">
+        <div class="col-3 item" id="fruit">
+            <div class="field title">Fruit:</div></div>
+        <div class="col-3 item" id="condiments">
+            <div class="field title">Condiments:</div>
+        </div>
+        <div class="col-3 item" id="packaged">
+            <div class="field title">Packaged goods:</div>
+        </div>
+        <div class="col-3 item" id="unpackaged">
+            <div class="field title">Unpackaged goods:</div>
+        </div>
+    </div>
 </div>
 {% endblock %}
